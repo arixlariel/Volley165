@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volley165 v8.14</title>
+    <title>Volley165 v8.17</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
@@ -21,50 +21,43 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- BARRA SUPERIOR MAXIMIZADA (80px Altura Fija) --- */
         header.v8-header { height: 80px; padding: 0 1.5rem; }
-        #logo-volley { height: 95px; width: auto; transition: 0.3s; } /* Más grande */
-                #logo-volley:hover { filter: brightness(1.4) saturate(1.4) drop-shadow(0 0 12px rgba(255, 255, 255, 0.2)); cursor: pointer; }
+        #logo-volley { height: 95px; width: auto; transition: 0.3s; }
+        #logo-volley:hover { filter: brightness(1.4) saturate(1.4) drop-shadow(0 0 12px rgba(255, 255, 255, 0.2)); cursor: pointer; }
         
-        .header-title-main { font-size: 1.5rem !important; line-height: 1; } /* Texto más grande */
+        .header-title-main { font-size: 1.5rem !important; line-height: 1; }
         .header-subtitle { font-size: 10px !important; letter-spacing: 0.35em !important; }
 
-/* EL CÍRCULO FÍSICO (Para que existan los botones) */
 .circle-btn-header { 
     width: 42px; 
     height: 42px; 
-    border-radius: 50%; /* Esto hace el círculo */
+    border-radius: 50%;
     display: flex; 
     align-items: center; 
     justify-content: center; 
     cursor: pointer; 
     transition: 0.3s; 
     background: rgba(255,255,255,0); 
-    border: 1px solid rgba(255,255,255,0.15); /* Borde del círculo */
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* HOVER GENERAL (Fondo blanco para todos) */
 .circle-btn-header:hover {
     background: white !important;
     transform: scale(1.1);
 }
 
-/* LA "i" (Texto negro en hover) */
 .circle-btn-header.info-btn:hover {
     color: black !important;
 }
 
-/* PAPELERA GRIS (Mantiene su gris en hover) */
 .circle-btn-header.trash-top:hover {
     color: #64748b !important;
 }
 
-/* PAPELERA NARANJA (Mantiene su naranja en hover) */
 .circle-btn-header.trash-bottom:hover {
     color: #f97316 !important;
 }
 
-        /* --- RED PROFESIONAL 8.03 --- */
         .volleyball-net {
             background: linear-gradient(to bottom, 
                 rgba(255,255,255,1) 0%, 
@@ -80,24 +73,20 @@
             box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
         }
 
-        /* --- LÍNEAS 3M 8.03 --- */
         .line-3m {
             position: absolute; left: 5%; right: 5%; height: 3px;
             background: rgba(255, 255, 255, 0.7);
         }
 
-        /* --- ESTÉTICA PISTA --- */
         .court-gradient-orange { background: radial-gradient(circle at center, #f97316 0%, #ea580c 100%); }
         .court-gradient-gray { background: radial-gradient(circle at center, #64748b 0%, #475569 100%); }
         
-        /* --- NODOS JUGADORES --- */
         .player-node {
             transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
             display: flex; align-items: center; justify-content: center;
             font-size: 22px; font-weight: 900; cursor: pointer;
             width: 85px; height: 85px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.5);
-            -webkit-print-color-adjust: exact;
             z-index: 50;
         }
 
@@ -105,13 +94,11 @@
         .diamond-inner { transform: rotate(-45deg); display: block; }
         .rounded-node { border-radius: 9999px; transform: translate(-50%, -50%); }
 
-/* --- NUEVAS ETIQUETAS DE NOMBRE "GLASSMOPRHISM V8" --- */
-/* --- ESTILO BASE (Tu código original con ajustes de posicionamiento) --- */
 .player-label, .name-edit-input {
     z-index: 150 !important;
     position: absolute !important;
     top: 50% !important;
-    left: 50% !important; /* Empezamos desde el centro del jugador */
+    left: 50% !important;
 
     background: rgba(15, 23, 42, 0.8) !important;
     backdrop-filter: blur(8px) !important;
@@ -126,7 +113,7 @@
     letter-spacing: 1px !important;
     
     height: 34px !important;
-    padding: 0 10px 0 10px !important;
+    padding: 0 9px 0 9px !important;
     border-radius: 8px !important;
     white-space: nowrap !important;
     z-index: 1000 !important;
@@ -134,23 +121,18 @@
     align-items: center !important;
     width: 120px !important; 
     justify-content: flex-start !important;
-
 }
-/* Evitar que el resplandor del cristal ensucie la foto */
+
 #court-canvas {
     backdrop-filter: none !important;
     background-color: #020617 !important;
 }
 
-/* --- LÓGICA DE ROTACIÓN Y POSICIÓN --- */
-
-/* 1. CAMPO NARANJA CIRC */
 #bottom-layer .player-node:not(.diamond) .player-label,
 #bottom-layer .player-node:not(.diamond) .name-edit-input {
-    transform: translate(55px, -50%) !important; /* Desplazado a la derecha */
+    transform: translate(55px, -50%) !important;
 }
 
-/* 2. CAMPO NARANJA */
 #bottom-layer .diamond .player-label,
 #bottom-layer .diamond .name-edit-input {
     transform: translate(89px, -95px) !important; 
@@ -158,13 +140,11 @@
     scale: 1.1 !important;
 }
 
-/* 3. CAMPO GRIS CIRC*/
 #top-layer .player-node:not(.diamond) .player-label,
 #top-layer .player-node:not(.diamond) .name-edit-input {
     transform: translate(-175px, -50%) rotate(180deg) !important;
 }
 
-/* 4. CAMPO GRIS */
 #top-layer .diamond .player-label,
 #top-layer .diamond .name-edit-input {
     transform: translate(-144px, -15px) rotate(180deg) !important;
@@ -180,15 +160,11 @@
         }
         .active-highlight.diamond { transform: translate(-50%, -50%) rotate(45deg) scale(0.95) !important; }
 
-/* --- LÓGICA LÍBERO HÍBRIDO --- */
-
-/* 1. Estado Apagado (Blanco y Verde) */
 .player-node.libero-hybrid {
     background: linear-gradient(to bottom, #ffffff 50%, var(--mb-green) 50%) !important;
     color: #000 !important;
 }
 
-/* 2. Estado Encendido (Blanco y Amarillo) */
 .player-node.libero-highlight-hybrid {
     background: linear-gradient(to bottom, #ffffff 50%, var(--highlight-yellow) 50%) !important;
     color: #000 !important;
@@ -196,7 +172,6 @@
     transform: translate(-50%, -50%) scale(1.05) !important;
 }
 
-/* 3. Ajustes para el campo GRIS (Superior) - Invertimos para mantener el blanco "arriba" */
 #top-layer .player-node.libero-hybrid {
     background: linear-gradient(to top, #ffffff 50%, var(--mb-green) 50%) !important;
 }
@@ -205,13 +180,11 @@
     background: linear-gradient(to top, #ffffff 50%, var(--highlight-yellow) 50%) !important;
 }
 
-/* Hover para los jugadores en la pista */
 .player-node:hover {
     transform: translate(-50%, -50%) scale(1.1) !important;
     z-index: 150 !important;
 }
 
-/* Caso especial: Si es un rombo (diamante), debe mantener su rotación al crecer */
 .player-node.diamond:hover {
     transform: translate(-50%, -50%) rotate(45deg) scale(1.0) !important;
 }
@@ -219,7 +192,6 @@
         .logo-on { filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 8px rgba(255, 106, 0, 0.3)); opacity: 1; }
         .logo-off { filter: brightness(1.1) grayscale(1); opacity: 0.5; }
 
-        /* --- HOVERS Y DROPDOWNS --- */
         .menu-container { position: relative; z-index: 1001; }
         .dropdown-menu {
             display: block; opacity: 0; visibility: hidden;
@@ -241,14 +213,20 @@
         }
         .dropdown-item:hover { filter: brightness(1.3); transform: translateX(6px); }
 
-        /* --- RECUPERACIÓN HOVER BOTONES LATERALES --- */
+.side-btn-hover {
+    transition: all 0.2s ease; 
+    
+    isolation: isolate;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
         .side-btn-hover:hover {
             filter: brightness(1.2);
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        /* Transición suave para todos los elementos interactivos */
 .circle-btn-header, 
 #rot-grid-top button, #rot-grid-bottom button, 
 #pos-grid-top button, #pos-grid-bottom button,
@@ -256,13 +234,11 @@
     transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) !important;
 }
 
-/* Hover para los círculos del header (Info y Papeleras) */
 .circle-btn-header:hover {
     transform: scale(1.15) !important;
     z-index: 10;
 }
 
-/* Hover para los botones de las cuadrículas (B1, S, WS1...) */
 #rot-grid-top button:hover, #rot-grid-bottom button:hover,
 #pos-grid-top button:hover, #pos-grid-bottom button:hover {
     transform: scale(1.1) !important;
@@ -300,52 +276,90 @@
             border-radius: 12px; margin-bottom: 8px;
         }
 
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #f97316;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    background: #ffffff;
+}
+
+.volume-muted { opacity: 0.3; pointer-events: none; }
         
     </style>
 </head>
 <body class="flex flex-col">
 
 <div id="info-popup" onclick="toggleInfo(false)">
-    <div class="popup-box" onclick="event.stopPropagation()">
-        <div class="flex flex-col items-center mb-5">
-            <div class="w-12 h-1 bg-orange-500 rounded-full mb-3 opacity-50"></div>
-            <h2 class="title-font text-white text-xl tracking-widest text-center uppercase">Leyenda</h2>
+    <div class="popup-box !max-w-4xl w-[90%]" onclick="event.stopPropagation()">
+        <div class="flex flex-col items-center mb-4">
+            <div class="w-16 h-1 bg-orange-500 rounded-full mb-4 opacity-50"></div>
+            <h2 class="title-font text-white text-4xl tracking-wider text-center uppercase">Leyenda</h2>
         </div>
-<ul class="space-y-4 font-black">
-    <li class="legend-item flex justify-between items-center text-xl">
-        <span class="text-black-400">S</span> 
-        <span class="text-black">COLOCADOR</span>
-    </li>
-    <li class="legend-item flex justify-between items-center text-xl">
-        <span class="text-blue-400">WS</span> 
-        <span class="text-blue-600">CUATRERO</span>
-    </li>
-    <li class="legend-item flex justify-between items-center text-xl">
-        <span class="text-blue-400">MB</span> 
-        <span class="text-green-700">CENTRAL</span>
-    </li>
-    <li class="legend-item flex justify-between items-center text-xl">
-        <span class="text-blue-400">O</span> 
-        <span class="text-red-700">OPUESTO</span>
-    </li>
-    <li class="legend-item flex justify-between items-center text-xl">
-        <span class="text-blue-400">L</span> 
-        <span class="text-white">LIBERO</span>
-    </li>
-</ul>
-        <button onclick="toggleInfo(false)" class="mt-6 w-full py-3 bg-orange-600 rounded-xl font-black text-sm uppercase tracking-widest text-white shadow-xl">Cerrar</button>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-2">
+    <div class="flex flex-col gap-4">
+        <h3 class="text-orange-500 font-black text-lg uppercase tracking-wider mb-2 border-b border-orange-500/30 pb-2 text-center">Roles</h3>
+        <ul class="space-y-3 font-black">
+            <li class="legend-item flex justify-between items-center h-[42px]"><span class="text-white opacity-60 text-[16px]">S</span> <span class="text-black text-[16px]">COLOCADOR</span></li>
+            <li class="legend-item flex justify-between items-center h-[42px]"><span class="text-white opacity-60 text-[16px]">WS</span> <span class="text-blue-500 text-[16px]">CUATRO</span></li>
+            <li class="legend-item flex justify-between items-center h-[42px]"><span class="text-white opacity-60 text-[16px]">MB</span> <span class="text-green-600 text-[16px]">CENTRAL</span></li>
+            <li class="legend-item flex justify-between items-center h-[42px]"><span class="text-white opacity-60 text-[16px]">O</span> <span class="text-red-600 text-[16px]">OPUESTO</span></li>
+            <li class="legend-item flex justify-between items-center h-[42px]"><span class="text-white opacity-60 text-[16px]">L</span> <span class="text-white text-[16px]">LÍBERO</span></li>
+        </ul>
+    </div>
+
+    <div class="flex flex-col gap-4">
+        <h3 class="text-orange-500 font-black text-lg uppercase tracking-wider mb-2 border-b border-orange-500/30 pb-2 text-center">Asignación</h3>
+        <div class="space-y-3 font-bold">
+            <div class="legend-item flex justify-between items-center h-[42px]">
+                <span class="text-slate-400 text-[16px]">Deshacer</span>
+                <span class="bg-slate-700 px-2 py-1 rounded text-white text-[12px] border border-slate-600 uppercase">CTRL + Z</span>
+            </div>
+            <div class="legend-item flex justify-between items-center h-[42px]">
+                <span class="text-slate-400 text-[16px]">Rehacer</span>
+                <span class="bg-slate-700 px-2 py-1 rounded text-white text-[12px] border border-slate-600 uppercase">CTRL + SHIFT + Z</span>
+            </div>
+            <div class="legend-item flex justify-between items-center h-[42px]">
+                <span class="text-slate-400 text-[16px]">Highlight</span>
+                <span class="bg-slate-700 px-2 py-1 rounded text-white text-[12px] border border-slate-600 uppercase">Click IZQ</span>
+            </div>
+            <div class="legend-item flex justify-between items-center h-[42px]">
+                <span class="text-slate-400 text-[16px]">Editar</span>
+                <span class="bg-slate-700 px-2 py-1 rounded text-white text-[12px] border border-slate-600 uppercase">Click DCH</span>
+            </div>
+            <div class="h-[42px] invisible md:block"></div>
+        </div>
+    </div>
+</div>
+
+        <button onclick="toggleInfo(false)" class="mt-8 w-full py-4 bg-orange-600 hover:bg-orange-500 rounded-xl font-black text-base uppercase tracking-widest text-white shadow-xl transition-colors">Cerrar</button>
     </div>
 </div>
 
 <header class="v8-header flex justify-between items-center border-b border-white/5 glass-panel shrink-0 relative z-[2000]">
     <div class="flex items-center gap-2 -ml-5">
-        <div id="master-mute-control" class="relative cursor-pointer transition-transform active:scale-95">
-            <img src="logo.png" id="logo-volley" alt="Volley165" class="logo-on">
+    <div id="master-mute-control" class="relative cursor-pointer transition-transform active:scale-95">
+        <img src="Volley165.png" id="logo-volley" alt="Volley165" class="logo-on">
+    </div>
+    <div class="flex flex-col">
+        <h1 class="header-title-main title-font tracking-tighter bg-gradient-to-r from-white via-orange-300 to-orange-600 bg-clip-text text-transparent">VOLLEY165</h1>
+        <p class="header-subtitle uppercase text-slate-500 font-bold">v8.17 RARE STRIKE</p>
+        
+        <div class="flex items-center mt-2 min-w-[160px]">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" 
+                class="w-40 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-orange-500 transition-opacity">
         </div>
-        <div class="flex flex-col">
-            <h1 class="header-title-main title-font tracking-tighter bg-gradient-to-r from-white via-orange-300 to-orange-600 bg-clip-text text-transparent">VOLLEY165</h1>
-            <p class="header-subtitle uppercase text-slate-500 font-bold">v8.14 SUPER STRIKE</p>
-        </div>
+    </div>
         <div class="flex items-center gap-4 ml-5 pl-6 border-l border-white/10 h-12">
             <div class="circle-btn-header info-btn text-white font-serif italic text-xl hover:scale-110 transition-all duration-200" onclick="toggleInfo(true)">i</div>
             <div class="circle-btn-header trash-top text-slate-500 hover:scale-110 transition-all duration-200" onclick="clearNames('top')">
@@ -400,8 +414,8 @@
 
 <main id="capture-area" class="flex-1 max-w-[1800px] mx-auto w-full p-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch overflow-hidden relative">
     <aside class="lg:col-span-2 flex flex-col gap-4 py-3 relative z-10">
-        <div class="glass-panel rounded-2xl p-4 border-l-4 border-slate-500 flex-1 flex flex-col">
-            <span class="text-[22px] font-black tracking-widest text-slate-400 block mb-3 text-center uppercase">C.V. GRIS</span>
+        <div class="glass-panel rounded-2xl p-4 border-2 border-slate-500 flex-1 flex flex-col">
+            <span class="text-[22px] font-black tracking-widest text-slate-400 block mb-2 text-center uppercase">C.V. GRIS</span>
             <div class="grid grid-cols-2 gap-4 flex-1">
                 <div class="flex flex-col gap-1">
                     <button onclick="autoRotate('top')" class="column-title-btn title-btn-slate -ml-1 side-btn-hover">Rotación</button>
@@ -416,7 +430,7 @@
     </aside>
 
     <section class="lg:col-span-8 flex flex-col items-center justify-center relative">
-        <div id="court-canvas" class="w-full max-w-5xl relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border-4 border-slate-800 shadow-2xl">
+        <div id="court-canvas" class="w-full max-w-5xl relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border-2 border-slate-800 shadow-2xl">
             <div id="capture-top" class="absolute top-0 left-0 w-full h-1/2 court-gradient-gray border-b-2 border-white/10">
                 <div class="line-3m" style="bottom: 30%;"></div>
                 <div id="top-layer" class="relative w-full h-full" style="transform: rotate(180deg);"></div>
@@ -430,8 +444,8 @@
     </section>
 
     <aside class="lg:col-span-2 flex flex-col gap-4 py-3 relative z-10">
-        <div class="glass-panel rounded-2xl p-4 border-r-4 border-orange-500 flex-1 flex flex-col">
-            <span class="text-[22px] font-black tracking-widest text-orange-500 block mb-3 text-center uppercase">C.V. NARANJA</span>
+        <div class="glass-panel rounded-2xl p-4 border-2 border-orange-500 flex-1 flex flex-col">
+            <span class="text-[22px] font-black tracking-widest text-orange-500 block mb-2 text-center uppercase">C.V. NARANJA</span>
             <div class="grid grid-cols-2 gap-4 flex-1">
                 <div class="flex flex-col gap-1">
                     <button onclick="autoRotate('bottom')" class="column-title-btn -ml-1 title-btn-orange side-btn-hover">Rotación</button>
@@ -450,18 +464,37 @@
 
 <script>
     const STORAGE_KEY = 'volley165_v804_persistent';
+    const VOL_KEY = 'volley165_volume_v8';
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     let isMuted = false;
+    let globalVolume = parseFloat(localStorage.getItem(VOL_KEY)) || 0.5;
     const baseOrder = ['S', 'WS1', 'MB1', 'O', 'WS2', 'MB2'];
     const rotationSequence = [1, 6, 5, 4, 3, 2];
     const rolesList = ['S', 'WS1', 'WS2', 'MB1', 'MB2', 'O', 'L'];
     const coords = { 1:{x:80, y:75}, 6:{x:50, y:75}, 5:{x:20, y:75}, 2:{x:80, y:32}, 3:{x:50, y:32}, 4:{x:20, y:32} };
-    
+
     let state = { top: { rot: 1, highlights: new Set() }, bottom: { rot: 1, highlights: new Set() } };
     let playerNames = {
         top: { 'S': '', 'WS1': '', 'WS2': '', 'MB1': '', 'MB2': '', 'O': '', 'L': '' },
         bottom: { 'S': '', 'WS1': '', 'WS2': '', 'MB1': '', 'MB2': '', 'O': '', 'L': '' }
     };
+
+     let history = [];
+let redoStack = [];
+
+function initVolume() {
+        const slider = document.getElementById('volume-slider');
+        if (slider) {
+            slider.value = globalVolume;
+            slider.oninput = (e) => {
+                globalVolume = parseFloat(e.target.value);
+                localStorage.setItem(VOL_KEY, globalVolume);
+                if (globalVolume > 0 && isMuted) {
+                    document.getElementById('master-mute-control').click();
+                }
+            };
+        }
+    }
 
     function saveToLocalStorage() {
         const data = { 
@@ -485,22 +518,60 @@
                 state.bottom.highlights = new Set(data.highlights?.bottom || []);
                 isMuted = data.isMuted || false;
                 const logo = document.getElementById('logo-volley');
-                if (isMuted) logo.className = 'logo-off transition-all duration-300';
+                const slider = document.getElementById('volume-slider');
+                if (isMuted) {
+                    logo.className = 'logo-off transition-all duration-300';
+                    if (slider) slider.classList.add('volume-muted');
+                }
             } catch(e) { console.error("Error loading storage", e); }
         }
     }
 
- let history = [];
-let redoStack = [];
+    function playSound(freq, type, duration, vol=0.3) {
+    if (isMuted) return;
+    try {
+        const osc = audioCtx.createOscillator(); 
+        const gain = audioCtx.createGain();
+        osc.type = type; 
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        
+        gain.gain.setValueAtTime(vol * globalVolume, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        
+        osc.connect(gain); 
+        gain.connect(audioCtx.destination);
+        osc.start(); 
+        osc.stop(audioCtx.currentTime + duration);
+    } catch(e) {}
+}   
+
+document.getElementById('master-mute-control').onclick = function() {
+    isMuted = !isMuted; 
+    const logo = document.getElementById('logo-volley');
+    const slider = document.getElementById('volume-slider');
+    
+    if (isMuted) {
+        isMuted = false;
+        playSound(300, 'sine', 0.1);
+        isMuted = true;
+
+        logo.className = 'logo-off transition-all duration-300';
+        if (slider) slider.classList.add('volume-muted');
+    } else {
+        logo.className = 'logo-on transition-all duration-300';
+        if (slider) slider.classList.remove('volume-muted');
+        playSound(600, 'sine', 0.1); 
+    }
+    saveToLocalStorage();
+};
 
 function saveState() {
-    // Guardamos una "foto" completa de la situación actual
     const snap = {
         playerNames: JSON.parse(JSON.stringify(playerNames)),
         state: JSON.parse(JSON.stringify(state)),
         isMuted: isMuted
     };
-    // Los Highlights son Sets, hay que convertirlos a Array para el JSON
+
     snap.state.top.highlights = Array.from(state.top.highlights);
     snap.state.bottom.highlights = Array.from(state.bottom.highlights);
     
@@ -510,8 +581,8 @@ function saveState() {
 }
 
 function undo() {
-    if (history.length === 0) return;
-    // Guardamos lo actual en Redo antes de volver atrás
+    if (history.length === 0) return;   
+
     const current = {
         playerNames: JSON.parse(JSON.stringify(playerNames)),
         state: JSON.parse(JSON.stringify(state)),
@@ -526,16 +597,16 @@ function undo() {
     state = prev.state;
     isMuted = prev.isMuted;
     
-    // Restaurar los Sets
     state.top.highlights = new Set(state.top.highlights);
     state.bottom.highlights = new Set(state.bottom.highlights);
     
-    // Actualizar visualmente todo
     const logo = document.getElementById('logo-volley');
     logo.className = isMuted ? 'logo-off' : 'logo-on';
     
     saveToLocalStorage();
     render('top'); render('bottom');
+
+    playSound(400, 'triangle', 0.05);
 }
 
 function redo() {
@@ -562,9 +633,10 @@ function redo() {
 
     saveToLocalStorage();
     render('top'); render('bottom');
+
+    playSound(800, 'triangle', 0.05);
 }
 
-// Escuchar teclado para los atajos
 document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'z') {
         e.preventDefault(); redo();
@@ -572,16 +644,6 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault(); undo();
     }
 });
-
-    function playSound(freq, type, duration, vol=0.05) {
-        if (isMuted) return;
-        const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
-        osc.type = type; osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + duration);
-    }
 
     function toggleInfo(show) { document.getElementById('info-popup').classList.toggle('active', show); }
 
@@ -596,7 +658,6 @@ function exportNames(scope) {
     if (scope === 'full') {
         data = playerNames;
     } else {
-        // Creamos un objeto temporal con la marca de origen
         data = {
             isSingle: true,
             origin: scope,
@@ -642,17 +703,12 @@ document.getElementById('import-file').onchange = (e) => {
                 }
             } 
             else {
-                // --- LÓGICA DE RESCATE PARA CAMPOS INDIVIDUALES ---
                 const otherField = target === 'top' ? 'bottom' : 'top';
                 let dataToImport = null;
 
                 if (json.isSingle) {
-                    // Si es archivo de un solo equipo, se usa ese
                     dataToImport = json.names;
                 } else if (json.top && json.bottom) {
-                    // Si es archivo de partido completo:
-                    // 1. Intentamos pillar el de su propio campo
-                    // 2. Si su campo está vacío (solo tiene strings vacíos), rescatamos el del otro campo
                     const hasNames = (field) => Object.values(json[field]).some(n => n !== '');
                     
                     if (hasNames(target)) {
@@ -660,10 +716,9 @@ document.getElementById('import-file').onchange = (e) => {
                     } else if (hasNames(otherField)) {
                         dataToImport = json[otherField];
                     } else {
-                        dataToImport = json[target]; // Ambos vacíos, da igual
+                        dataToImport = json[target];
                     }
                 } else {
-                    // Archivo viejo o plano
                     dataToImport = json;
                 }
 
@@ -717,15 +772,13 @@ document.getElementById('import-file').onchange = (e) => {
         const el = document.createElement('div');
         const isFront = [2,3,4].includes(p.zone);
         const isHigh = state[team].highlights.has(p.role);
-        const isHybrid = (p.role === 'L' && !isFront);
+        const isHybrid = (p.role === 'L' && p.zone === 1);
 
         let finalClass = `player-node absolute ${isFront ? 'diamond' : 'rounded-node'}`;
 
         if (isHybrid) {
-            // Caso Líbero Híbrido: Ignoramos colores de Tailwind
             finalClass += isHigh ? " libero-highlight-hybrid" : " libero-hybrid";
         } else {
-            // Caso Normal: Aplicamos colores estándar
             let colorClass = p.role==='S'?"bg-black text-orange-400":p.role.includes('WS')?"bg-blue-600 text-white":p.role.includes('MB')?"bg-green-700 text-white":p.role==='O'?"bg-red-700 text-white":"bg-white text-black";
             finalClass += " " + colorClass;
             if (isHigh) finalClass += " active-highlight";
@@ -748,18 +801,16 @@ document.getElementById('import-file').onchange = (e) => {
             input.value = playerNames[team][p.role] || '';
             el.appendChild(input); input.focus();
 input.onblur = () => { 
-    // Comprobamos si el nombre nuevo es distinto al que ya había
     if (playerNames[team][p.role] !== input.value.toUpperCase()) {
-        saveState(); // Solo guardamos estado si hubo cambio real
+        saveState();
         playerNames[team][p.role] = input.value.toUpperCase(); 
         saveToLocalStorage(); 
         render(team); 
     } else {
-        // Si no cambió nada, solo renderizamos para quitar el input de la pantalla
         render(team); 
     }
 };            input.onkeydown = (ke) => { if(ke.key==='Enter') input.blur(); };
-            input.maxLength = 12;
+            input.maxLength = 8;
         };
 
         const txt = document.createElement('span'); txt.innerText = p.role; txt.className = isFront?'diamond-inner':'';
@@ -809,41 +860,29 @@ input.onblur = () => {
         });
     }
 
-    document.getElementById('master-mute-control').onclick = function() {
-        saveState();
-        isMuted = !isMuted; const logo = document.getElementById('logo-volley');
-        if (isMuted) logo.className = 'logo-off transition-all duration-300';
-        else { logo.className = 'logo-on transition-all duration-300'; playSound(600, 'sine', 0.1); }
-        saveToLocalStorage();
-    };
-
 async function performCapture(el, fileName) {
-    // 1. Forzar visibilidad de nombres y limpiar antes de capturar
     const labels = document.querySelectorAll('.player-label');
     labels.forEach(l => l.style.opacity = "1");
 
     try {
         const canvas = await html2canvas(el, { 
-            scale: 3, // Alta definición
+            scale: 3,
             backgroundColor: "#000", 
             useCORS: true,
             allowTaint: true,
             logging: false,
-            // Esto es clave para que no salgan cosas movidas en elementos rotados
             onclone: (clonedDoc) => {
                 const area = clonedDoc.getElementById(el.id);
                 area.style.transform = "none";
             }
         });
 
-        // Descargar archivo
         const dataUrl = canvas.toDataURL('image/png');
         const link = document.createElement('a');
         link.download = fileName;
         link.href = dataUrl;
         link.click();
 
-        // Copiar al portapapeles
         canvas.toBlob(async (blob) => {
             try {
                 const item = new ClipboardItem({ "image/png": blob });
@@ -858,9 +897,7 @@ async function performCapture(el, fileName) {
     }
 }
 
-// CAPTURA COMPLETA: Ahora solo captura el campo, sin botones
 function exportCapture() { 
-    // Usamos 'court-canvas' en lugar de 'capture-area' para eliminar las botoneras
     performCapture(document.getElementById('court-canvas'), 'volley165_full.png'); 
 }
 
@@ -869,7 +906,7 @@ function exportPart(id) {
     performCapture(document.getElementById(`capture-${id}`), `volley165_pic_${namePart}.png`); 
 }
 
-    loadFromLocalStorage(); initUI(); render('top'); render('bottom');
+    loadFromLocalStorage(); initUI(); initVolume(); render('top'); render('bottom');
 </script>
 </body>
 </html>
